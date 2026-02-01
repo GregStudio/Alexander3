@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,60 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
-        .sidebar { width: 280px; height: 100vh; position: fixed; left: 0; top: 0; background: #fff; border-right: 1px solid #dee2e6; padding: 2rem 1.5rem; z-index: 1000; }
-        .main-content { margin-left: 280px; }
-        .nav-link { color: #333; padding: 0.8rem 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
-        .nav-link.active { color: #0d6efd; font-weight: bold; }
-        .hero-banner { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000') center/cover; height: 450px; border-radius: 10px; margin: 20px; display: flex; align-items: center; padding: 50px; color: white; }
-        @media (max-width: 991px) { .sidebar { width: 100%; height: auto; position: relative; } .main-content { margin-left: 0; } }
+        .sidebar {
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #fff;
+            border-right: 1px solid #dee2e6;
+            padding: 2rem 1.5rem;
+            z-index: 1000;
+        }
+
+        .main-content {
+            margin-left: 280px;
+        }
+
+        .nav-link {
+            color: #333;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-link.active {
+            color: #0d6efd;
+            font-weight: bold;
+        }
+
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000') center/cover;
+            height: 450px;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            padding: 50px;
+            color: white;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="sidebar d-flex flex-column">
@@ -32,68 +79,73 @@
     </div>
 
     <div class="main-content">
-    <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 fw-bold">Galeri Proyek & Produk</h5>
-        <div class="badge bg-primary">Total 24 Album</div>
-    </header>
+        <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-bold">Galeri Proyek & Produk</h5>
+            <div class="badge bg-primary">Total 24 Album</div>
+        </header>
 
-    <div class="container-fluid p-4">
-        <p class="text-muted mb-4">Dokumentasi pengiriman dan pemasangan bronjong di berbagai lokasi proyek.</p>
-        
-        <div class="row g-3">
-            <div class="col-md-4 col-sm-6">
-                <div class="position-relative overflow-hidden rounded shadow-sm group">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Proyek Tebing">
-                    <div class="p-3 bg-white">
-                        <h6 class="mb-0 fw-bold">Pemasangan Tebing Jalan</h6>
-                        <small class="text-muted">Lokasi: Bogor, Jawa Barat</small>
+        <div class="container-fluid p-4">
+            <p class="text-muted mb-4">Dokumentasi pengiriman dan pemasangan bronjong di berbagai lokasi proyek.</p>
+
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="position-relative overflow-hidden rounded shadow-sm group">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600"
+                            class="img-fluid" alt="Proyek Tebing">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0 fw-bold">Pemasangan Tebing Jalan</h6>
+                            <small class="text-muted">Lokasi: Bogor, Jawa Barat</small>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4 col-sm-6">
-                <div class="position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1590060417673-4286701a812b?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Stok Gudang">
-                    <div class="p-3 bg-white">
-                        <h6 class="mb-0 fw-bold">Ready Stock Gudang Utama</h6>
-                        <small class="text-muted">Kapasitas: 10.000 Unit</small>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="position-relative overflow-hidden rounded shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1590060417673-4286701a812b?auto=format&fit=crop&q=80&w=600"
+                            class="img-fluid" alt="Stok Gudang">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0 fw-bold">Ready Stock Gudang Utama</h6>
+                            <small class="text-muted">Kapasitas: 10.000 Unit</small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Pengiriman">
-                    <div class="p-3 bg-white">
-                        <h6 class="mb-0 fw-bold">Pengiriman Luar Pulau</h6>
-                        <small class="text-muted">Tujuan: Samarinda, Kalimantan</small>
+                <div class="col-md-4 col-sm-6">
+                    <div class="position-relative overflow-hidden rounded shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600"
+                            class="img-fluid" alt="Pengiriman">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0 fw-bold">Pengiriman Luar Pulau</h6>
+                            <small class="text-muted">Tujuan: Samarinda, Kalimantan</small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="position-relative overflow-hidden rounded shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600" class="img-fluid" alt="Proyek Sungai">
-                    <div class="p-3 bg-white">
-                        <h6 class="mb-0 fw-bold">Normalisasi Aliran Sungai</h6>
-                        <small class="text-muted">Lokasi: Semarang, Jawa Tengah</small>
+                <div class="col-md-4 col-sm-6">
+                    <div class="position-relative overflow-hidden rounded shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=600"
+                            class="img-fluid" alt="Proyek Sungai">
+                        <div class="p-3 bg-white">
+                            <h6 class="mb-0 fw-bold">Normalisasi Aliran Sungai</h6>
+                            <small class="text-muted">Lokasi: Semarang, Jawa Tengah</small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             </div>
 
-        <nav class="mt-5">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
