@@ -1,554 +1,252 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Bronjong Steel Service</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <style>
-        .sidebar {
-            width: 280px;
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background: #fff;
-            border-right: 1px solid #dee2e6;
-            padding: 2rem 1.5rem;
-            z-index: 1000;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT. Anugerah Metal Indonesia - Galeri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero { background: var(--blue); padding: 80px 0; }
+    .page-hero h1 { font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .page-hero .breadcrumb { color: rgba(255,255,255,0.7); font-size: 13px; }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.9); }
+    .gallery-page { padding: 80px 0; }
+    .experience-section { background: var(--blue-light); border-radius: 12px; padding: 40px; margin-bottom: 60px; border: 1px solid var(--border); }
+    .experience-section h3 { font-size: 16px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .exp-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; list-style: none; }
+    .exp-list li { font-size: 13px; color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .gallery-item { overflow: hidden; border-radius: 8px; aspect-ratio: 4/3; background: var(--gray-light); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; cursor: pointer; }
+    .gallery-item:hover img { transform: scale(1.06); }
 
-        .main-content {
-            margin-left: 280px;
-        }
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; }
+    .lightbox.active { display: flex; }
+    .lightbox-img { max-width: 90vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 20px; right: 28px; font-size: 36px; color: #fff; cursor: pointer; line-height: 1; background: none; border: none; }
+    .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 40px; color: #fff; cursor: pointer; background: none; border: none; padding: 0 16px; opacity: 0.7; transition: opacity 0.2s; }
+    .lightbox-prev:hover, .lightbox-next:hover { opacity: 1; }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
 
-        .nav-link {
-            color: #333;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .nav-link.active {
-            color: #0d6efd;
-            font-weight: bold;
-        }
-
-        .hero-banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000') center/cover;
-            height: 450px;
-            border-radius: 10px;
-            margin: 20px;
-            display: flex;
-            align-items: center;
-            padding: 50px;
-            color: white;
-        }
-
-        @media (max-width: 991px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .exp-list { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
-
-    <div class="sidebar d-flex flex-column">
-        <h4 class="fw-bold mb-4">AMI <span class="text-primary">Bronjong</span></h4>
-        <nav class="nav flex-column mb-auto">
-            <a class="nav-link" href="index.html">HOME <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="about.html">ABOUT US <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="products.html">PRODUCT <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link active" href="gallery.html">GALLERY <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="contact.html">CONTACT US <i class="bi bi-chevron-right"></i></a>
+  <header class="site-header" id="siteHeader">
+    <div class="header-top-bar">
+      <div class="container">
+        <span>📧 amibronjong02@gmail.com</span>
+        <span>📞 +62 878-6671-9772</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container header-inner">
+        <a href="index.html" class="logo"><img src="Picture/Logo/logonavbar.png" alt="AMI Logo"></a>
+        <nav class="main-nav">
+          <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+          <ul class="nav-list" id="navList">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown-parent">
+              <a href="#">Produk</a>
+              <ul class="dropdown">
+                <li><a href="product.html">Product Overview</a></li>
+                <li><a href="specification.html">Spesifikasi Produk</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html" class="active">Galeri</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="contact.html" class="nav-cta">Hubungi Kami</a></li>
+          </ul>
         </nav>
-        <div class="mt-4 p-3 bg-light rounded small text-muted">
-            <i class="bi bi-envelope-fill"></i> amibronjong02@gmail.com
-        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="main-content">
-        <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
-                    <li class="breadcrumb-item active">Gallery</li>
-                </ol>
-            </nav>
-        </header>
-
-        <div class="container-fluid p-4">
-            <p class="text-muted mb-4">Dokumentasi pengiriman dan pemasangan bronjong di berbagai lokasi proyek.</p>
-
-            <div class="col-lg-12">
-                <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                    <h4 style="color: #004c97; font-weight: bold; margin-bottom: 20px;">Pengalaman Kerja</h4>
-
-                    <b style="color: #004c97;">PERUSAHAAN MULTI NASIONAL :</b>
-                    <ul style="margin-bottom: 20px; padding-left: 20px; list-style-type: square;">
-                        <li style="margin-bottom: 10px;">
-                            PT. MULTIKON, Jakarta: Sebagai sub kontraktor dalam hal pengadaan bronjong manual/hand made
-                            kawat SNI Kelinci 5 mm/BWG 6, hexagonal, double twist (lilitan 3 x) untuk pengerjaan
-                            pembangunan gudang, bangunan gedung/kantor, lapangan golf PT. Gudang Garam di Pandaan Jatim.
-                            Serta pengerjaan tanah untuk galian, pemasangan dan pengisian bronjong serta timbunan tanah.
-                        </li>
-                        <li style="margin-bottom: 10px;">PT. KPSI - Kalimantan Selatan: Pengadaan bronjong/gabion untuk
-                            pengerjaan sungai di Panajam.</li>
-                        <li style="margin-bottom: 10px;">PT. Titan Kontruksi di Denpasar Bali: Perkuatan tebing sungai
-                            termasuk dengan jasa pemasangan dan pengisian bronjong.</li>
-                        <li style="margin-bottom: 10px;">PT. CONBLOC, Jakarta: Proyek di Kalimantan.</li>
-                        <li style="margin-bottom: 10px;">PT. PANCAWIRAWA KARYATAMA, Surabaya: Proyek di Bedugul Pasar
-                            Agro, Bali; Perkuatan dan landasan bangunan serta penahan longsor tebing di Bedugul.</li>
-                        <li style="margin-bottom: 10px;">PT. CHEIL JEDANG: Pengadaan kawat harmonika di lokasi pabrik di
-                            Pasuruan.</li>
-                    </ul>
-
-                    <b style="color: #004c97;">PERUSAHAAN KONTRAKTOR DAERAH SELURUH INDONESIA YANG MENJADI REKANAN DINAS
-                        PU DAERAH :</b>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul style="padding-left: 20px; list-style-type: disc;">
-                                <li>Lhokseumawe - Nanggroe Aceh Darussalam</li>
-                                <li>Sorong - Irian Barat</li>
-                                <li>Jayapura - Papua</li>
-                                <li>Waingapu, Waikabubak - NTT</li>
-                                <li>Balikpapan - Kalimantan Timur</li>
-                                <li>Tarakan - Kalimantan Timur</li>
-                                <li>Samarinda - Kalimantan Timur</li>
-                                <li>Banjarmasin - Kalimantan Selatan</li>
-                                <li>Surabaya - Jatim</li>
-                                <li>Pacitan - Jatim</li>
-                                <li>Situbondo - Jatim</li>
-                                <li>Bondowoso - Jatim</li>
-                                <li>Banyuwangi - Jatim</li>
-                                <li>Sanggata - Kaltim</li>
-                                <li>Muara Enim - Sumsel</li>
-                                <li>Cilacap - Jateng</li>
-                                <li>Kebumen - Jateng</li>
-                                <li>Banjarnegara - Jateng</li>
-                                <li>Manado - Sulawesi Utara</li>
-                                <li>Makassar - Sulawesi Selatan</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul style="padding-left: 20px; list-style-type: disc;">
-                                <li>Pontianak - Kalimantan Barat</li>
-                                <li>Yogyakarta</li>
-                                <li>Palembang - Sumsel</li>
-                                <li>Bekasi - Jabar</li>
-                                <li>Pamekasan - Madura - Jatim</li>
-                                <li>Gorontalo</li>
-                                <li>Tanjung Selor, Kaltim</li>
-                                <li>Taliwan, NTB</li>
-                                <li>Banda Aceh</li>
-                                <li>Luwuk - Sulteng</li>
-                                <li>Tanjung Selor - Kaltim</li>
-                                <li>Kutacane - NAD</li>
-                                <li>Lampung</li>
-                                <li>Meulaboh - NAD</li>
-                                <li>Puruk Cahu - Kalsel</li>
-                                <li>Toli-Toli - Sulteng</li>
-                                <li>Mataram - NTB</li>
-                                <li>Bedugul - Bali</li>
-                                <li>Labuan Bajo, Flores - NTT</li>
-                                <li>Dan masih banyak lagi daerah di Indonesia</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- PART 1 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery1.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery2.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery3.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 2 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery4.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery5.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery6.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 3 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery7.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery8.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery9.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 4 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery10.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery11.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery12.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 5 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery13.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery14.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery15.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 6 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery16.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery17.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery18.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 7 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery19.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery20.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery21.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 8 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery22.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery23.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery24.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 9 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery25.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery26.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery27.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 10 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery28.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery29.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery30.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 11 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery31.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery32.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery33.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 12 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery34.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery35.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery36.jpeg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <!-- PART 13 -->
-                <div class="row g-3">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="position-relative overflow-hidden rounded shadow-sm group">
-                            <img src="images/ami/gallery37.jpg" class="img-fluid"
-                                style="width: 600px; height: 200px; object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="row g-3">
-                <div class="col-md-4 col-sm-6">
-                    <div class="position-relative overflow-hidden rounded shadow-sm group">
-                        <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600"
-                            class="img-fluid" alt="Proyek Tebing">
-                        <div class="p-3 bg-white">
-                            <h6 class="mb-0 fw-bold">Pemasangan Tebing Jalan</h6>
-                            <small class="text-muted">Lokasi: Bogor, Jawa Barat</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="position-relative overflow-hidden rounded shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600"
-                            class="img-fluid" alt="Stok Gudang">
-                        <div class="p-3 bg-white">
-                            <h6 class="mb-0 fw-bold">Ready Stock Gudang Utama</h6>
-                            <small class="text-muted">Kapasitas: 10.000 Unit</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="position-relative overflow-hidden rounded shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600"
-                            class="img-fluid" alt="Pengiriman">
-                        <div class="p-3 bg-white">
-                            <h6 class="mb-0 fw-bold">Pengiriman Luar Pulau</h6>
-                            <small class="text-muted">Tujuan: Samarinda, Kalimantan</small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6">
-                    <div class="position-relative overflow-hidden rounded shadow-sm">
-                        <img src="https://images.unsplash.com/photo-1574689049868-e94ed5301745?auto=format&fit=crop&q=80&w=600"
-                            class="img-fluid" alt="Proyek Sungai">
-                        <div class="p-3 bg-white">
-                            <h6 class="mb-0 fw-bold">Normalisasi Aliran Sungai</h6>
-                            <small class="text-muted">Lokasi: Semarang, Jawa Tengah</small>
-                        </div>
-                    </div>
-                </div>
-
-            </div> -->
-
-            <!-- <nav class="mt-5">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
-            </nav> -->
-        </div>
+  <div class="page-hero">
+    <div class="container">
+      <h1>Galeri & Pengalaman Kerja</h1>
+      <p class="breadcrumb"><a href="index.html">Beranda</a> / Galeri</p>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <section class="gallery-page">
+    <div class="container">
+      <div class="experience-section">
+        <h3>Perusahaan Multi Nasional</h3>
+        <ul class="exp-list">
+          <li>PT. MULTIKON, Jakarta — Gudang & Lapangan Golf PT. Gudang Garam, Pandaan Jatim</li>
+          <li>PT. KPSI — Kalimantan Selatan, Pengerjaan Sungai di Panajam</li>
+          <li>PT. Titan Konstruksi — Denpasar Bali, Perkuatan Tebing Sungai</li>
+          <li>PT. CONBLOC, Jakarta — Proyek di Kalimantan</li>
+          <li>PT. PANCAWIRAWA KARYATAMA — Bedugul Pasar Agro, Bali</li>
+          <li>PT. CHEIL JEDANG — Kawat Harmonika di Pasuruan</li>
+        </ul>
+        <br>
+        <h3>Kontraktor Daerah Seluruh Indonesia</h3>
+        <ul class="exp-list">
+          <li>Lhokseumawe - NAD</li>
+          <li>Sorong - Irian Barat</li>
+          <li>Jayapura - Papua</li>
+          <li>Waingapu - NTT</li>
+          <li>Balikpapan - Kaltim</li>
+          <li>Tarakan - Kaltim</li>
+          <li>Samarinda - Kaltim</li>
+          <li>Banjarmasin - Kalsel</li>
+          <li>Surabaya - Jatim</li>
+          <li>Pacitan - Jatim</li>
+          <li>Banyuwangi - Jatim</li>
+          <li>Manado - Sulut</li>
+          <li>Makassar - Sulsel</li>
+          <li>Pontianak - Kalbar</li>
+          <li>Yogyakarta</li>
+          <li>Palembang - Sumsel</li>
+          <li>Mataram - NTB</li>
+          <li>Bedugul - Bali</li>
+          <li>Labuan Bajo - NTT</li>
+          <li>Dan masih banyak lagi...</li>
+        </ul>
+      </div>
+
+      <!-- Gallery from Picture/Gallery -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item"><img src="Picture/Gallery/1765973972263.png" alt="Galeri AMI 1" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974059619.png" alt="Galeri AMI 2" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974068553.png" alt="Galeri AMI 3" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974169211.png" alt="Galeri AMI 4" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974235915.png" alt="Galeri AMI 5" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974249403.png" alt="Galeri AMI 6" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974314287.png" alt="Galeri AMI 7" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765974835836.png" alt="Galeri AMI 8" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765975008471.png" alt="Galeri AMI 9" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765975020671.png" alt="Galeri AMI 10" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765975035516.png" alt="Galeri AMI 11" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765975104832.png" alt="Galeri AMI 12" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/1765975306043.png" alt="Galeri AMI 13" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/20241128_130628.jpg" alt="Galeri AMI 14" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/20241128_130643.jpg" alt="Galeri AMI 15" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander.jpg" alt="Galeri AMI 16" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(1).jpg" alt="Galeri AMI 17" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(2).jpg" alt="Galeri AMI 18" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(3).jpg" alt="Galeri AMI 19" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(4).jpg" alt="Galeri AMI 20" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(5).jpg" alt="Galeri AMI 21" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(6).jpg" alt="Galeri AMI 22" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(7).jpg" alt="Galeri AMI 23" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(8).jpg" alt="Galeri AMI 24" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(9).jpg" alt="Galeri AMI 25" loading="lazy"></div>
+        <div class="gallery-item"><img src="Picture/Gallery/Photo from Alexander(10).jpg" alt="Galeri AMI 26" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev">&#8249;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-next" id="lightboxNext">&#8250;</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main" style="background-image:url('Picture/Background/image (3).jpg')">
+      <div class="footer-overlay"></div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="Picture/Logo/logonavbar.png" alt="AMI" height="50">
+          <p>Manufacturer kawat bronjong/gabion terpercaya di Indonesia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li>📞 +62 878-6671-9772</li>
+            <li>📧 amibronjong02@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sertifikasi</h4>
+          <div class="cert-row">
+            <img src="Picture/Logo/Logo_of_the_Ministry_of_Industries_of_the_Republic_of_Indonesia.svg.png" alt="Kemenperin" height="40">
+            <img src="Picture/Logo/Logo_KAN.png" alt="KAN" height="40">
+            <img src="Picture/Logo/SNI_mark.svg.png" alt="SNI" height="40">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 PT. Anugerah Metal Indonesia. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-buttons">
+    <a href="http://wa.me/6282139292472" class="float-btn">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navList').classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('siteHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+
+    // Lightbox
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    let currentIndex = 0;
+    const srcs = Array.from(galleryItems).map(img => img.src);
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = srcs[currentIndex];
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    galleryItems.forEach((img, i) => {
+      img.parentElement.addEventListener('click', () => openLightbox(i));
+    });
+
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    document.getElementById('lightboxPrev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + srcs.length) % srcs.length;
+      lightboxImg.src = srcs[currentIndex];
+    });
+
+    document.getElementById('lightboxNext').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % srcs.length;
+      lightboxImg.src = srcs[currentIndex];
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + srcs.length) % srcs.length; lightboxImg.src = srcs[currentIndex]; }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % srcs.length; lightboxImg.src = srcs[currentIndex]; }
+    });
+  </script>
 </body>
-
 </html>

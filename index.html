@@ -1,125 +1,265 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Bronjong Steel Service</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <style>
-        .sidebar {
-            width: 280px;
-            height: 100vh;
-            position: fixed;
-            left: 0;
-            top: 0;
-            background: #fff;
-            border-right: 1px solid #dee2e6;
-            padding: 2rem 1.5rem;
-            z-index: 1000;
-        }
-
-        .main-content {
-            margin-left: 280px;
-        }
-
-        .nav-link {
-            color: #333;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .nav-link.active {
-            color: #0d6efd;
-            font-weight: bold;
-        }
-
-        .hero-banner {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=1000') center/cover;
-            height: 450px;
-            border-radius: 10px;
-            margin: 20px;
-            display: flex;
-            align-items: center;
-            padding: 50px;
-            color: white;
-        }
-
-        @media (max-width: 991px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PT. Anugerah Metal Indonesia - Pabrik kawat bronjong / Gabion terbaik di Surabaya, Indonesia">
+  <title>PT. Anugerah Metal Indonesia - Corporate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <div class="sidebar d-flex flex-column">
-        <h4 class="fw-bold mb-4">AMI <span class="text-primary">Bronjong</span></h4>
-        <nav class="nav flex-column mb-auto">
-            <a class="nav-link active" href="index.html">HOME <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="about.html">ABOUT US <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="products.html">PRODUCT <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="gallery.html">GALLERY <i class="bi bi-chevron-right"></i></a>
-            <a class="nav-link" href="contact.html">CONTACT US <i class="bi bi-chevron-right"></i></a>
+  <!-- STICKY HEADER -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-top-bar">
+      <div class="container">
+        <span>📧 amibronjong02@gmail.com</span>
+        <span>📞 +62 878-6671-9772</span>
+        <span>⏰ Senin–Jumat: 08.00–17.00</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img src="Picture/Logo/logonavbar.png" alt="AMI Logo">
+        </a>
+        <nav class="main-nav">
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="nav-list" id="navList">
+            <li><a href="index.html" class="active">Beranda</a></li>
+            <li class="dropdown-parent">
+              <a href="#">Produk</a>
+              <ul class="dropdown">
+                <li><a href="product.html">Product Overview</a></li>
+                <li><a href="specification.html">Spesifikasi Produk</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="contact.html" class="nav-cta">Hubungi Kami</a></li>
+          </ul>
         </nav>
-        <div class="mt-4 p-3 bg-light rounded small text-muted">
-            <i class="bi bi-envelope-fill"></i> amibronjong02@gmail.com
-        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="main-content">
-        <header class="bg-white p-3 border-bottom d-flex justify-content-between align-items-center">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item active">Home</li>
-                </ol>
-            </nav>
-        </header>
-
-        <div class="hero-banner">
-            <div>
-                <h1 class="display-4 fw-bold">Solusi Penguatan Tanah <br> & Tebing Berkualitas</h1>
-                <p class="fs-5">Distributor Utama Bronjong Kawat Lilit Ganda Standar SNI.</p>
-                <a href="products.html" class="btn btn-primary px-4 py-2 mt-3">Lihat Produk Kami</a>
-            </div>
+  <!-- HERO SPLIT LAYOUT -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-content">
+        <div class="hero-tag">🏆 Bersertifikat SNI</div>
+        <h1>Pabrik Kawat Bronjong Terpercaya di Indonesia</h1>
+        <p>PT. Anugerah Metal Indonesia — Manufacturer, Distributor & Supplier kawat bronjong/gabion heavy galvanized berkualitas tinggi sejak lebih dari 20 tahun.</p>
+        <div class="hero-actions">
+          <a href="product.html" class="btn-primary">Lihat Produk</a>
+          <a href="contact.html" class="btn-ghost">Konsultasi Gratis</a>
         </div>
-
-        <div class="container-fluid p-4">
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="p-4 bg-white shadow-sm rounded">
-                        <i class="bi bi-shield-check text-primary fs-1"></i>
-                        <h5 class="mt-3">Kualitas Terjamin</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white shadow-sm rounded">
-                        <i class="bi bi-truck text-primary fs-1"></i>
-                        <h5 class="mt-3">Pengiriman Cepat</h5>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 bg-white shadow-sm rounded">
-                        <i class="bi bi-tags text-primary fs-1"></i>
-                        <h5 class="mt-3">Harga Pabrik</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <img src="Picture/Logo/SNI_mark.svg.png" alt="SNI" height="35">
+          </div>
+          <div class="trust-item">
+            <img src="Picture/Logo/Logo_KAN.png" alt="KAN" height="35">
+          </div>
+          <div class="trust-item">
+            <img src="Picture/Logo/Logo_of_the_Ministry_of_Industries_of_the_Republic_of_Indonesia.svg.png" alt="Kemenperin" height="35">
+          </div>
         </div>
+      </div>
     </div>
+    <div class="hero-right">
+      <div class="hero-image-stack">
+        <img src="Picture/Background/image (1).jpg" alt="Gabion Project" class="hero-img-main">
+        <div class="hero-card-float">
+          <span class="card-num">34+</span>
+          <span class="card-text">Provinsi Terlayani</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="container stats-row">
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-desc">Tahun Pengalaman</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">SNI</span>
+        <span class="stat-desc">Bersertifikat Resmi</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">100+</span>
+        <span class="stat-desc">Proyek Nasional</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">7</span>
+        <span class="stat-desc">Jenis Produk</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section-about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-images">
+          <img src="Picture/Gallery/Photo from Alexander(5).jpg" alt="Pabrik AMI" class="img-main">
+          <img src="Picture/Gallery/Photo from Alexander(3).jpg" alt="Produk AMI" class="img-secondary">
+        </div>
+        <div class="about-content">
+          <span class="section-tag">Tentang Perusahaan</span>
+          <h2>Solusi Bronjong Terlengkap untuk Konstruksi Indonesia</h2>
+          <p>PT. Anugerah Metal Indonesia adalah perusahaan yang bergerak di bidang manufacturer, distributor, dan supplier perdagangan barang dan jasa spesialis untuk produk kawat bronjong/gabion yang diproduksi secara pabrikasi mesin dan manual (hand made).</p>
+          <p>Perusahaan ini juga menyediakan jasa konsultan manajemen untuk pengerjaan pemasangan bronjong, pengisian serta pengerjaan struktur tanah dan bangunan/pondasi.</p>
+          <div class="about-details">
+            <div class="detail-item"><strong>NIB:</strong> 1608220009229</div>
+            <div class="detail-item"><strong>NPWP:</strong> 60.634.841.5-614.000</div>
+            <div class="detail-item"><strong>Akta:</strong> AHU-0019.AH.02.01</div>
+          </div>
+          <a href="contact.html" class="btn-primary">Hubungi Kami</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISI MISI -->
+  <section class="section-vismis">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-tag">Nilai Perusahaan</span>
+        <h2>Visi, Misi & Target</h2>
+      </div>
+      <div class="vismis-cards">
+        <div class="vm-card">
+          <div class="vm-number">01</div>
+          <h3>Visi</h3>
+          <p>Inspirator bronjong manual dengan bahan baku bersertifikat SNI dan memiliki uji laboratorium untuk kekuatan tarik anyaman manual. Mitra terpercaya dalam pengadaan bronjong.</p>
+        </div>
+        <div class="vm-card featured">
+          <div class="vm-number">02</div>
+          <h3>Misi</h3>
+          <p>Memberikan kepuasan pilihan kepada pengguna bronjong sesuai dengan budget yang ditetapkan. Inovasi dan pengembangan SDM untuk mempertahankan keunggulan kompetitif yang kuat.</p>
+        </div>
+        <div class="vm-card">
+          <div class="vm-number">03</div>
+          <h3>Target</h3>
+          <p>Perusahaan Konstruksi Multinasional, BUMN, Kontraktor Daerah, Dinas PU seluruh Indonesia, serta pasar luar negeri di Asia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section-products">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-tag">Produk Kami</span>
+        <h2>Rangkaian Produk Unggulan</h2>
+        <p>Semua produk diproduksi dengan standar kualitas tinggi dan bersertifikat SNI</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-img"><img src="Picture/Product/KAWAT BRONJONG GALVANIZED.jpg" alt="Bronjong Galvanis"></div>
+          <div class="product-body">
+            <h3>Kawat Bronjong Galvanis</h3>
+            <p>Pabrikasi mesin & manual, bersertifikat SNI, heavy galvanized</p>
+            <a href="product.html" class="product-link">Selengkapnya →</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><img src="Picture/Product/KAWAT PVC COATED.jpg" alt="Bronjong PVC"></div>
+          <div class="product-body">
+            <h3>Kawat Bronjong Lapis PVC</h3>
+            <p>Tahan korosi, ideal untuk lingkungan agresif dan air asin</p>
+            <a href="product.html" class="product-link">Selengkapnya →</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><img src="Picture/Product/KAWAT  BWG.png" alt="Kawat Galvanis"></div>
+          <div class="product-body">
+            <h3>Kawat Galvanis BWG</h3>
+            <p>Kawat baja galvanis berkualitas tinggi untuk berbagai aplikasi</p>
+            <a href="product.html" class="product-link">Selengkapnya →</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img"><img src="Picture/Product/GEOTEXTILE NON WOVEN.webp" alt="Geotekstil"></div>
+          <div class="product-body">
+            <h3>Geotekstil Non Woven</h3>
+            <p>Bahan tekstil permeabel untuk aplikasi teknik sipil dan konstruksi</p>
+            <a href="product.html" class="product-link">Selengkapnya →</a>
+          </div>
+        </div>
+      </div>
+      <div class="products-cta">
+        <a href="product.html" class="btn-primary">Lihat Semua Produk</a>
+        <a href="specification.html" class="btn-outline">Spesifikasi Teknis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-main" style="background-image:url('Picture/Background/image (3).jpg')">
+      <div class="footer-overlay"></div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="Picture/Logo/logonavbar.png" alt="AMI" height="50">
+          <p>Manufacturer, Distributor & Supplier kawat bronjong/gabion terpercaya di Indonesia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li>📞 +62 878-6671-9772 (Jawa-Bali-NTB)</li>
+            <li>+62 821-3245-5967 (Sumatera)</li>
+            <li>+62 823-3682-6308 (Sulawesi)</li>
+            <li>+62 821-3929-2472 (NTT-Maluku)</li>
+            <li>+62 822-2962-9379 (Kalimantan)</li>
+            <li>+62 822-2962-9362 (Papua)</li>
+            <li>📧 amibronjong02@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sertifikasi</h4>
+          <div class="cert-row">
+            <img src="Picture/Logo/Logo_of_the_Ministry_of_Industries_of_the_Republic_of_Indonesia.svg.png" alt="Kemenperin" height="40">
+            <img src="Picture/Logo/Logo_KAN.png" alt="KAN" height="40">
+            <img src="Picture/Logo/SNI_mark.svg.png" alt="SNI" height="40">
+          </div>
+          <h4 style="margin-top:20px">Lokasi</h4>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.1342822785077!2d112.679349175289!3d-7.225520792780457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7ff1c8f97db49%3A0x199da6ad8df41882!2sJl.%20Greges%20Jaya%20III%20No.14%2C%20Greges%2C%20Kec.%20Asem%20Rowo%2C%20Surabaya%2C%20Jawa%20Timur%2060183!5e0!3m2!1sen!2sid!4v1707631855228!5m2!1sen!2sid" width="100%" height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 PT. Anugerah Metal Indonesia. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-buttons">
+    <a href="http://wa.me/6282139292472" class="float-btn">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navList').classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('siteHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
 </body>
-
 </html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT. Anugerah Metal Indonesia - Produk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero { background: var(--blue); padding: 80px 0; }
+    .page-hero h1 { font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .page-hero .breadcrumb { color: rgba(255,255,255,0.7); font-size: 13px; }
+    .page-hero .breadcrumb a { color: rgba(255,255,255,0.9); }
+    .products-page { padding: 80px 0; background: var(--gray-light); }
+    .products-page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .prod-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s; }
+    .prod-card:hover { box-shadow: 0 8px 32px rgba(0,76,151,0.12); transform: translateY(-4px); }
+    .prod-card-img { height: 220px; overflow: hidden; background: var(--gray-light); }
+    .prod-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .prod-card:hover .prod-card-img img { transform: scale(1.05); }
+    .prod-card-body { padding: 24px; }
+    .prod-card-body h3 { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+    .prod-card-body p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+    @media (max-width: 768px) { .products-page-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 1024px) and (min-width: 769px) { .products-page-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="header-top-bar">
+      <div class="container">
+        <span>📧 amibronjong02@gmail.com</span>
+        <span>📞 +62 878-6671-9772</span>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="container header-inner">
+        <a href="index.html" class="logo"><img src="Picture/Logo/logonavbar.png" alt="AMI Logo"></a>
+        <nav class="main-nav">
+          <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+          <ul class="nav-list" id="navList">
+            <li><a href="index.html">Beranda</a></li>
+            <li class="dropdown-parent">
+              <a href="#" class="active">Produk</a>
+              <ul class="dropdown">
+                <li><a href="product.html">Product Overview</a></li>
+                <li><a href="specification.html">Spesifikasi Produk</a></li>
+              </ul>
+            </li>
+            <li><a href="gallery.html">Galeri</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="contact.html" class="nav-cta">Hubungi Kami</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Product Overview</h1>
+      <p class="breadcrumb"><a href="index.html">Beranda</a> / Produk</p>
+    </div>
+  </div>
+
+  <section class="products-page">
+    <div class="container">
+      <div class="products-page-grid">
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT  BWG.png" alt="Kawat Galvanis BWG"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Galvanis BWG</h3>
+            <p>Kawat baja galvanis berkualitas tinggi yang dikepang membentuk struktur kisi kuat dan tahan lama untuk berbagai kebutuhan konstruksi.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT DURI.png" alt="Kawat Duri"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Duri (Barbed Wire)</h3>
+            <p>Kawat dengan duri tajam pada interval tetap, dirancang untuk keamanan perimeter dan pembatas area konstruksi maupun perkebunan.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/GEOTEXTILE NON WOVEN.webp" alt="Geotekstil Non Woven"></div>
+          <div class="prod-card-body">
+            <h3>Geotekstil Non Woven</h3>
+            <p>Bahan tekstil permeabel non-anyam untuk aplikasi teknik sipil: pemisah, filter, drainase, dan perlindungan tanah pada proyek konstruksi.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/GEOTEXTILE WOVEN.webp" alt="Geotekstil Woven"></div>
+          <div class="prod-card-body">
+            <h3>Geotekstil Woven</h3>
+            <p>Bahan tekstil permeabel anyaman untuk perkuatan tanah, stabilisasi lereng, dan peningkatan daya dukung pondasi jalan.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT PVC COATED.jpg" alt="Bronjong PVC Coated"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Bronjong Lapis PVC</h3>
+            <p>Anyaman kawat baja galvanis dilapisi PVC, memberikan ketahanan korosi tinggi untuk lingkungan agresif dan proyek di tepi laut.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT HDPE COATED.jpg" alt="Kawat HDPE Coated"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Bronjong Lapis HDPE</h3>
+            <p>Anyaman kawat baja galvanis dengan lapisan HDPE (High Density Polyethylene) untuk ketahanan kimia dan cuaca ekstrem.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT BRONJONG GALVANIZED.jpg" alt="Bronjong Manual Galvanis"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Bronjong Pabrikasi Manual (Galvanis)</h3>
+            <p>Struktur kotak dari anyaman kawat baja galvanis, diproduksi secara manual dengan standar kualitas SNI. Cocok untuk pengendalian erosi dan perkuatan tebing.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/KAWAT BRONJONG GALVANIZED(1).jpg" alt="Bronjong Mesin Galvanis"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Bronjong Pabrikasi Mesin (Galvanis)</h3>
+            <p>Struktur kotak dari anyaman kawat baja galvanis, diproduksi dengan mesin untuk konsistensi kualitas tinggi dan kapasitas produksi besar.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/BRONJONG ROLL.png" alt="Bronjong Roll"></div>
+          <div class="prod-card-body">
+            <h3>Bronjong Roll (Reno Mattress)</h3>
+            <p>Bronjong berbentuk lembaran/matras dengan ketebalan rendah, ideal untuk pelindung dasar sungai, tebing, dan stabilisasi lereng jangka panjang.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/ROCKFALL NETTING.jpg" alt="Rockfall Netting"></div>
+          <div class="prod-card-body">
+            <h3>Rockfall Netting (Jaring Pengaman Batu)</h3>
+            <p>Jaring kawat baja bertenaga tinggi untuk perlindungan terhadap longsor batu pada lereng jalan, terowongan, dan infrastruktur kritis.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/1765973686684.png" alt="Produk AMI"></div>
+          <div class="prod-card-body">
+            <h3>Gabion Box</h3>
+            <p>Keranjang kawat galvanis berisi batu belah, digunakan untuk dinding penahan tanah, pengendali banjir, dan perkuatan tebing sungai.</p>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <div class="prod-card-img"><img src="Picture/Product/1765973832481.png" alt="Produk Anyaman"></div>
+          <div class="prod-card-body">
+            <h3>Kawat Anyaman (Hexagonal Wire Mesh)</h3>
+            <p>Anyaman kawat heksagonal galvanis serbaguna untuk pagar, kandang unggas, pelindung tanaman, dan berbagai keperluan industri.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-main" style="background-image:url('Picture/Background/image (3).jpg')">
+      <div class="footer-overlay"></div>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <img src="Picture/Logo/logonavbar.png" alt="AMI" height="50">
+          <p>Manufacturer kawat bronjong/gabion terpercaya di Indonesia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li>📞 +62 878-6671-9772</li>
+            <li>📧 amibronjong02@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sertifikasi</h4>
+          <div class="cert-row">
+            <img src="Picture/Logo/Logo_of_the_Ministry_of_Industries_of_the_Republic_of_Indonesia.svg.png" alt="Kemenperin" height="40">
+            <img src="Picture/Logo/Logo_KAN.png" alt="KAN" height="40">
+            <img src="Picture/Logo/SNI_mark.svg.png" alt="SNI" height="40">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 PT. Anugerah Metal Indonesia. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="float-buttons">
+    <a href="http://wa.me/6282139292472" class="float-btn">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('navList').classList.toggle('open');
+      this.classList.toggle('active');
+    });
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('siteHeader');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>
